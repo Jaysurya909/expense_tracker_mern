@@ -10,6 +10,8 @@ import { addThousandsSeprator } from '../../utils/helper';
 import InfoCard from '../../components/Cards/InfoCard';
 import RecentTransactions from '../../components/Dashboard/RecentTransactions';
 import FinanceOverview from '../../components/Dashboard/FinanceOverview';
+import ExpenseTransactions from '../../components/Dashboard/ExpenseTransactions';
+import Last30DaysExpenses from '../../components/Dashboard/Last30DaysExpenses';
 
 const Home = () => {
 
@@ -75,7 +77,7 @@ const Home = () => {
        </div> */}
 
        <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
-          <RecentTransactions
+          {/* <RecentTransactions
             transactions={dashBoardData?.recentTransactions}
             onSeenMore={()=>navigate("/expense")}
           />
@@ -85,8 +87,18 @@ const Home = () => {
           totalBalance={dashBoardData?.totalBalance || 0}
           totalIncome={dashBoardData?.totalIncome || 0}
           totalExpense={dashBoardData?.totalExpense || 0}
-       /> 
+       />  */}  
 
+       <ExpenseTransactions 
+          transactions={dashBoardData?.last30DaysExpenses?.transactions || []}
+          onSeeMore={()=>navigate("/expense")}
+       />
+
+       <Last30DaysExpenses
+          data={dashBoardData?.last30DaysExpenses?.transactions || []}
+       />
+
+      </div>
       </div>
     </DashboardLayout>
   )
