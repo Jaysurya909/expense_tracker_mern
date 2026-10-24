@@ -16,7 +16,7 @@ export const getInitials = (name) => {
     }
 
     return initials.toUpperCase();
-}
+};
 
 export const addThousandsSeprator = (num) => {
     if(num==null || isNaN(num)) return "";
@@ -37,7 +37,7 @@ export const prepareExpenseBarChartData = (data = []) => {
     }))
 
     return chartData;
-}
+};
 
 export const prepareIncomeBarChartData = (data = []) => {
     const sortedData = [...data].sort((a,b)=>new Date(a.date)-new Date(b.date));
@@ -49,4 +49,16 @@ export const prepareIncomeBarChartData = (data = []) => {
     }))
 
     return chartData;
-}
+};
+
+export const prepareExpenseLineChartData = (data = []) => {
+    const sortedData = [...data].sort((a,b)=>new Date(a.date)-new Date(b.date));
+
+    const chartData = sortedData.map((item)=>({
+        month: moment(item?.date).format('Do MMM'),
+        amount: item?.amount,
+        category: item?.source,
+    }))
+
+    return chartData;
+};
