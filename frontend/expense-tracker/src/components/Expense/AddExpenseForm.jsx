@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from "../Inputs/Input"
 import EmojiPickerPopup from '../EmojiPickerPopup'
 
@@ -17,7 +17,7 @@ const AddExpenseForm = ({onAddExpense}) => {
     <div>
         <EmojiPickerPopup
             icon={income.icon}
-            onSelect={(selectedIcon)=> handleChange("income",selectedIcon)}
+            onSelect={(selectedIcon)=> handleChange("icon",selectedIcon)}
         />
 
         <Input
@@ -26,6 +26,14 @@ const AddExpenseForm = ({onAddExpense}) => {
             label="Category"
             placeholder="Rent,Groceries,etc"
             type="text"
+        />
+
+        <Input
+            value={income.amount}
+            onChange = {({target}) => handleChange("amount",target.value)}
+            label="Amount"
+            placeholder=""
+            type="number"
         />
 
         <Input
