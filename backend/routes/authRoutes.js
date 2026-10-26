@@ -1,6 +1,5 @@
 const express = require("express");
 const {protect} = require("../middleware/authMiddleware")
-
 const{registerUser,loginUser,getUserInfo} = require('../controllers/authContoller');
 const upload = require("../middleware/uploadMiddleware");
 
