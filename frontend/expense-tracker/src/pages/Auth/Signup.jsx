@@ -56,7 +56,8 @@ const Signup = () => {
       const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER,{
         fullName,
         email,
-        password
+        password,
+        profileImageUrl
       });
 
       const {token,user} = response.data;
